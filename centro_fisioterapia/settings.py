@@ -25,10 +25,13 @@ SECRET_KEY = 'django-insecure-gkql_3^s3_9we&f@l#wn5%@4nflm(-@row=)7mx*bkig6*w!x#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'mi-proyecto-django-kp75.onrender.com',
-    'mi-proyecto-django-3.onrender.com'
-]
+import os
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
             
 # Application definition
 
