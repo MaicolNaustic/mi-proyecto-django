@@ -5,3 +5,6 @@ psycopg2==2.9.10
 sqlparse==0.5.3
 tzdata==2025.2
 gunicorn
+whitenoise
+dj-database-url
+psycopg2-binary
