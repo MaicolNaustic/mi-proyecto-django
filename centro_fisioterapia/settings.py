@@ -25,9 +25,11 @@ SECRET_KEY = 'django-insecure-gkql_3^s3_9we&f@l#wn5%@4nflm(-@row=)7mx*bkig6*w!x#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mi-proyecto-django-kp75.onrender.com']
 
-
+        <a href="{% url 'agregar_proveedor' %}" class="btn btn-success">
+            + AGREGAR PROVEEDOR
+            
 # Application definition
 
 INSTALLED_APPS = [
