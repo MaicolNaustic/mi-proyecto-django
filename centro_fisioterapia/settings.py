@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-gkql_3^s3_9we&f@l#wn5%@4nflm(-@row=)7mx*bkig6*w!x#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mi-proyecto-django-kp75.onrender.com']
+ALLOWED_HOSTS = [
+    'mi-proyecto-django-kp75.onrender.com',
+    'mi-proyecto-django-3.onrender.com'
+]
             
 # Application definition
 
