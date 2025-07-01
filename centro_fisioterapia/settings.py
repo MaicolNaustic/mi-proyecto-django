@@ -83,15 +83,13 @@ WSGI_APPLICATION = 'centro_fisioterapia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'practicatpe2',
-        'USER': 'practicausr25',
-        'PASSWORD': 'practic35',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default='postgres://practicausr25:practic35@localhost:5432/practicatpe2',
+        conn_max_age=600
+    )
 }
 
 
