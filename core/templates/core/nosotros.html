@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nosotros - Centro de Fisioterapia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .logo-circular {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .titulo {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .seccion-titulo {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        .descripcion {
+            text-align: justify;
+        }
+        .empresa-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            margin: auto;
+        }
+        .btn-center {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <span class="titulo">CENTRO DE FISIOTERAPIA</span>
+            </div>
+            <div class="col-md-4 text-end">
+                <img src="{% static 'logo.png' %}" alt="Logo" class="logo-circular">
+            </div>
+        </div>
+
+        <nav class="mt-4 mb-4">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'nosotros' %}active{% endif %}" href="{% url 'nosotros' %}">NOSOTROS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'productos' %}active{% endif %}" href="{% url 'productos' %}">PRODUCTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'trabajadores' %}active{% endif %}" href="{% url 'trabajadores' %}">TRABAJADORES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'proveedores' %}active{% endif %}" href="{% url 'proveedores' %}">PROVEEDORES</a>
+                </li>
+            </ul>
+        </nav>
+
+        {% if empresa %}
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="mb-2"><strong>NOMBRE DE LA EMPRESA:</strong> {{ empresa.nombre }}</div>
+                <div class="mb-2"><strong>RUC:</strong> {{ empresa.ruc }}</div>
+                <div class="mb-2"><strong>DIRECCIÓN:</strong> {{ empresa.direccion }}</div>
+            </div>
+            <div class="col-md-4 text-end">
+                <a href="{% url 'editar_empresa' empresa.id %}" class="btn btn-primary">EDITAR INFORMACIÓN</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-center">
+                {% if empresa.imagen %}
+                    <img src="{{ empresa.imagen.url }}" alt="Imagen empresa" class="empresa-img mb-2">
+                {% else %}
+                    <img src="{% static 'default-image.png' %}" alt="Imagen no disponible" class="empresa-img mb-2">
+                {% endif %}
+                <div><strong>Año de fundación:</strong> {{ empresa.anio_fundacion }}</div>
+            </div>
+            <div class="col-md-6">
+                <div class="seccion-titulo">MISIÓN</div>
+                <p class="descripcion">{{ empresa.mision }}</p>
+
+                <div class="seccion-titulo">VISIÓN</div>
+                <p class="descripcion">{{ empresa.vision }}</p>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="text-center">
+            <h4 class="text-danger mt-5">¡NO SE HA INGRESADO INFORMACIÓN DE LA EMPRESA!</h4>
+            <div class="btn-center">
+                <a href="{% url 'agregar_empresa' %}" class="btn btn-success btn-lg">AGREGAR INFORMACIÓN</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

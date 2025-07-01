@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Centro de Fisioterapia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .logo-circular {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .titulo {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .seccion-titulo {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        .descripcion {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <span class="titulo">CENTRO DE FISIOTERAPIA</span>
+            </div>
+            <div class="col-md-4 text-end">
+                <img src={% static 'logo.png' %} alt="Logo" class="logo-circular">
+            </div>
+        </div>
+
+        <nav class="mt-4 mb-4">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'nosotros' %}active{% endif %}" href="{% url 'nosotros' %}">NOSOTROS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'productos' %}active{% endif %}" href="{% url 'productos' %}">PRODUCTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'trabajadores' %}active{% endif %}" href="{% url 'trabajadores' %}">TRABAJADORES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'proveedores' %}active{% endif %}" href="{% url 'proveedores' %}">PROVEEDORES</a>
+                </li>
+            </ul>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{% static 'carrusel1.jpg' %}" class="d-block w-100" alt="Imagen 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'carrusel2.jpg' %}" class="d-block w-100" alt="Imagen 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'carrusel3.jpg' %}" class="d-block w-100" alt="Imagen 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'carrusel4.jpg' %}" class="d-block w-100" alt="Imagen 4">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="seccion-titulo">DESCRIPCIÓN DE LA EMPRESA</div>
+                <p class="descripcion">
+                    Somos un centro especializado en fisioterapia avanzada, comprometido con la salud y el bienestar de nuestros pacientes. 
+                    Contamos con tecnología de última generación, personal capacitado y un enfoque humanizado que nos permite ofrecer tratamientos personalizados, 
+                    eficientes y seguros. Nuestro objetivo es mejorar la calidad de vida de cada persona que confía en nosotros.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="seccion-titulo">HISTORIA DE LA EMPRESA</div>
+                <p class="descripcion">
+                    El Centro de Fisioterapia nació en 2010 como un emprendimiento familiar con la visión de ofrecer tratamientos de rehabilitación física de excelencia. 
+                    A lo largo de los años hemos crecido, incorporando nuevas técnicas, profesionales y tecnología, siempre enfocados en el cuidado integral del paciente.
+                    Hoy somos un referente local en fisioterapia preventiva, deportiva y postoperatoria.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div id="carousel2" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{% static 'historia1.jpg' %}" class="d-block w-100" alt="Historia 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'historia2.jpg' %}" class="d-block w-100" alt="Historia 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'historia3.jpg' %}" class="d-block w-100" alt="Historia 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'historia4.jpg' %}" class="d-block w-100" alt="Historia 4">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
